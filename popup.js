@@ -8,10 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   });
-
   function detectDarkPatterns(sourceCode) {
     // Read dark patterns from the dataset.txt file
-    fetch('dataset.txt')
+    fetch('datasets.txt')
       .then(response => response.text())
       .then(patternsTxt => {
         var darkPatterns = patternsTxt.split('\n').map(pattern => pattern.trim()).filter(pattern => pattern !== '');
@@ -24,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .catch(error => console.error('Error fetching dataset:', error));
   }
-
   function displayResult(foundPatterns) {
     var resultDiv = document.getElementById('result');
     if (foundPatterns.length > 0) {
